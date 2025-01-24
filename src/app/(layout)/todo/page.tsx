@@ -1,5 +1,5 @@
-import client from "@/app/db"; // Assuming you have Prisma setup
-import TodoGrid from "@/components/todoComp"; // Import the TodoGrid component
+import client from "@/app/db"; 
+import TodoGrid from "@/components/todoComp"; 
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -10,7 +10,7 @@ const TadooPage = async () => {
 
   if (!token) {
     console.log("no token");
-    // You can return a redirect or a simple UI message for unauthorized access
+   
     return <div>Unauthorized</div>; // Simple UI message
   }
 
@@ -48,5 +48,12 @@ const TadooPage = async () => {
     return <div>Failed to load todos</div>; // Simple UI message
   }
 };
+
+// This function is used to set cache headers to disable caching
+export async function headers() {
+  return {
+    'Cache-Control': 'no-store', // Disables caching
+  };
+}
 
 export default TadooPage;
