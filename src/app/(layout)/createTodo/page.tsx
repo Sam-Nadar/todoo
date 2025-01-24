@@ -1,14 +1,10 @@
 "use client"
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
-import { useRouter } from 'next/navigation';
-import { revalidatePath } from 'next/cache'
 
 const TodoForm = () => {
   // State to store the list of todos
   const [todos, setTodos] = useState([{ title: '', description: '' }]);
-
-  const router = useRouter();
 
   // Function to handle adding a new input set (for title and description)
   const addTodoFields = () => {
@@ -41,10 +37,7 @@ const TodoForm = () => {
     
       if (response.ok) {
         console.log('Todos submitted successfully');
-        // revalidatePath('/todo')
         window.location.href = '/todo';
-
-        
 
         // Reset form after submission
         setTodos([{ title: '', description: '' }]); // Ensure this is the correct reset logic
