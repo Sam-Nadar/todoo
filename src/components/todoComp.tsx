@@ -47,7 +47,11 @@ const TodoGrid: React.FC<TodoGridProps> = ({ initialTodos }) => {
       });
   
       if (response.ok) {
-        router.refresh(); // This will re-fetch the page data
+        setTodos((prevTodos) =>
+          prevTodos.map((todo) =>
+            todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+          )
+        );      
       } else {
         console.error('Failed to update todo');
       }
