@@ -54,11 +54,11 @@ const TadooPage = async () => {
   }
 };
 
-// This function is used to set cache headers to disable caching
-export async function headersfunc() {
-  return {
-    'Cache-Control': 'no-store', // Disables caching
-  };
-}
+// // This function is used to set cache headers to disable caching
+// export async function headersfunc() {
+//   return {
+//     'Cache-Control': 'no-store', // Disables caching
+//   };
+// }
 
 export default TadooPage;
