@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { revalidatePath } from 'next/cache'
 
 const TodoForm = () => {
   // State to store the list of todos
@@ -40,7 +41,11 @@ const TodoForm = () => {
     
       if (response.ok) {
         console.log('Todos submitted successfully');
-        router.push('/todo')
+        // revalidatePath('/todo')
+        window.location.href = '/todo';
+
+        
+
         // Reset form after submission
         setTodos([{ title: '', description: '' }]); // Ensure this is the correct reset logic
       } else {

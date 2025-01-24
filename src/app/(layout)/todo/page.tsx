@@ -35,7 +35,10 @@ const TadooPage = async () => {
       where: {
         userId: userId, // Filter by userId
       },
-    });
+    },
+  );
+  
+  
 
     return (
       <div>
@@ -43,6 +46,8 @@ const TadooPage = async () => {
         <TodoGrid initialTodos={todos} /> {/* Pass fetched todos to TodoGrid */}
       </div>
     );
+
+    window.location.reload()
   } catch (error) {
     console.error(error);
     return <div>Failed to load todos</div>; // Simple UI message
